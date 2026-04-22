@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Melisa Arukgoda — Portfolio</title>
+  <title>Melisa Oshaini Arukgoda — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -15,348 +15,98 @@
       --border: #e2e8f0;
       --bg: #ffffff;
       --bg-soft: #f8f9fc;
-      --accent: #1a2744;
       --text: #1a202c;
       --text-muted: #718096;
       --max: 860px;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--bg); font-size: 16px; line-height: 1.75; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      font-size: 16px;
-      line-height: 1.75;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-    }
-    .nav-inner {
-      max-width: var(--max);
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-    .nav-brand {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--navy);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--slate);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+    .nav-inner { max-width: var(--max); margin: auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-brand { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--navy); text-decoration: none; letter-spacing: 0.01em; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
 
-    /* HERO */
-    .hero {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 5rem 2rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 3rem;
-      align-items: center;
-    }
-    .hero-text h1 {
-      font-family: 'EB Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 500;
-      color: var(--navy);
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-    .hero-text .title-line {
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--slate-light);
-      margin-bottom: 1.5rem;
-    }
-    .hero-text p {
-      font-size: 1rem;
-      color: var(--slate);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.45rem 1.1rem;
-      border: 1px solid var(--navy);
-      border-radius: 3px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--navy);
-      transition: all 0.2s;
-    }
+    section { max-width: var(--max); margin: 0 auto; padding: 3.5rem 2rem; }
+    section + section { border-top: 1px solid var(--border); }
+    h2 { font-family: 'EB Garamond', serif; font-size: 1.7rem; font-weight: 500; color: var(--navy); margin-bottom: 1.75rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--navy); display: inline-block; }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1.1rem; border: 1px solid var(--navy); border-radius: 3px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; color: var(--navy); transition: all 0.2s; }
     .btn:hover { background: var(--navy); color: white; }
     .btn.filled { background: var(--navy); color: white; }
     .btn.filled:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
 
-    .hero-photo {
-      width: 220px; height: 260px;
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 0.5rem;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      text-align: center;
-      overflow: hidden;
-    }
-    .hero-photo svg { opacity: 0.35; }
-
-    /* DIVIDER */
-    .divider {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    /* SECTIONS */
-    section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 3.5rem 2rem;
-    }
-    section + section { border-top: 1px solid var(--border); }
-
-    h2 {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.7rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 1.75rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 2px solid var(--navy);
-      display: inline-block;
-    }
-
-    /* RESEARCH INTERESTS */
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .interest-card {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.25rem 1.25rem;
-    }
-    .interest-card .ic-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
+    .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .interest-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem; }
+    .interest-card .ic-title { font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 0.4rem; }
     .interest-card p { font-size: 0.88rem; color: var(--slate); line-height: 1.6; }
 
-    /* PUBLICATIONS */
     .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .pub-item {
-      padding: 1.25rem 1.5rem;
-      border-left: 3px solid var(--navy);
-      background: var(--bg-soft);
-    }
-    .pub-venue {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate-light);
-      margin-bottom: 0.35rem;
-    }
-    .pub-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--navy);
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-    }
+    .pub-item { padding: 1.25rem 1.5rem; border-left: 3px solid var(--navy); background: var(--bg-soft); }
+    .pub-venue { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-light); margin-bottom: 0.35rem; }
+    .pub-title { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--navy); font-weight: 500; margin-bottom: 0.3rem; }
     .pub-authors { font-size: 0.85rem; color: var(--slate); margin-bottom: 0.5rem; }
     .pub-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .tag {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.65rem;
-      border-radius: 2px;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      color: var(--slate);
-      transition: all 0.2s;
-    }
+    .tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 2px; text-decoration: none; border: 1px solid var(--border); color: var(--slate); transition: all 0.2s; }
     .tag:hover { border-color: var(--navy); color: var(--navy); }
 
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .project-img {
-      width: 100%; height: 160px;
-      background: var(--bg-soft);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      border-bottom: 1px solid var(--border);
-    }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+    .project-card { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .project-img { width: 100%; height: 160px; background: var(--bg-soft); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.78rem; border-bottom: 1px solid var(--border); overflow: hidden; }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; }
     .project-body { padding: 1rem 1.1rem; }
-    .project-label {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate-light);
-      margin-bottom: 0.3rem;
-    }
-    .project-title {
-      font-size: 0.98rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
+    .project-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-light); margin-bottom: 0.3rem; }
+    .project-title { font-size: 0.98rem; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
     .project-desc { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
 
-    /* EXPERIENCE */
     .exp-list { display: flex; flex-direction: column; gap: 1.75rem; }
-    .exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem; }
-    .exp-date {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      padding-top: 2px;
-      text-align: right;
-    }
-    .exp-content {}
+    .exp-item { display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; }
+    .exp-date { font-size: 0.8rem; color: var(--text-muted); padding-top: 2px; text-align: right; }
     .exp-role { font-size: 1rem; font-weight: 500; color: var(--navy); }
-    .exp-place {
-      font-size: 0.85rem;
-      color: var(--slate);
-      margin-bottom: 0.35rem;
-    }
-    .exp-desc { font-size: 0.88rem; color: var(--slate); line-height: 1.7; }
+    .exp-place { font-size: 0.85rem; color: var(--slate); margin-bottom: 0.35rem; }
+    .exp-bullets { margin-top: 0.4rem; padding-left: 1.1rem; }
+    .exp-bullets li { font-size: 0.87rem; color: var(--slate); line-height: 1.65; margin-bottom: 0.2rem; }
 
-    /* HOBBIES */
+    .achieve-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; }
+    .achieve-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 1rem; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 4px; }
+    .achieve-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--navy); margin-top: 9px; flex-shrink: 0; }
+    .achieve-text { font-size: 0.87rem; color: var(--slate); line-height: 1.55; }
+    .achieve-text strong { color: var(--navy); font-weight: 500; display: block; font-size: 0.82rem; }
+
     .hobbies-intro { color: var(--slate); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; }
-    .hobby-photos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .hobby-photo {
-      aspect-ratio: 4/3;
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.5rem;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      text-align: center;
-      padding: 1rem;
-    }
+    .hobby-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+    .hobby-photo { aspect-ratio: 4/3; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.78rem; text-align: center; padding: 1rem; overflow: hidden; }
+    .hobby-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
 
-    /* CONTACT */
-    .contact-wrapper {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2rem 2.5rem;
-      max-width: 560px;
-    }
+    .contact-wrapper { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 4px; padding: 2rem 2.5rem; max-width: 560px; }
     .contact-wrapper p { color: var(--slate); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.8; }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
     label { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--slate); }
-    input, textarea {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      padding: 0.55rem 0.85rem;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      background: white;
-      color: var(--text);
-      transition: border-color 0.2s;
-      resize: vertical;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--navy);
-    }
+    input, textarea { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; padding: 0.55rem 0.85rem; border: 1px solid var(--border); border-radius: 3px; background: white; color: var(--text); transition: border-color 0.2s; resize: vertical; }
+    input:focus, textarea:focus { outline: none; border-color: var(--navy); }
     textarea { min-height: 110px; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.75rem 2rem;
-    }
-    .footer-inner {
-      max-width: var(--max);
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 2rem; }
+    .footer-inner { max-width: var(--max); margin: auto; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text-muted); }
     .footer-links { display: flex; gap: 1.25rem; }
     .footer-links a { color: var(--text-muted); text-decoration: none; }
     .footer-links a:hover { color: var(--navy); }
 
     @media (max-width: 640px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-photo { width: 140px; height: 160px; }
       .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
       .exp-date { text-align: left; }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .hero-text h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="#top">Melisa Arukgoda —</a>
@@ -366,24 +116,24 @@
       <li><a href="#publications">Publications</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#hobbies">Hobbies</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO / ABOUT -->
 <div id="top"></div>
-<section id="about" style="padding-top: 4rem; padding-bottom: 4rem;">
-  <div style="display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: start;">
+<section id="about" style="padding-top:4rem;padding-bottom:4rem;">
+  <div style="display:grid;grid-template-columns:1fr 200px;gap:3rem;align-items:start;">
     <div>
-      <p class="title-line" style="font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-light);margin-bottom:0.5rem;">Research Assistant · Mechanical Engineering · Penn State University</p>
-      <h1 style="font-family:'EB Garamond',serif;font-size:2.7rem;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:1.25rem;">Melisa Arukgoda<br/><span style="font-style:italic;color:var(--navy-mid);">Geometric Mechanics &amp; Robotics</span></h1>
+      <p style="font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-light);margin-bottom:0.5rem;">Research Assistant · Mechanical Engineering · Penn State University</p>
+      <h1 style="font-family:'EB Garamond',serif;font-size:2.7rem;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:1.25rem;">Melisa Oshaini Arukgoda<br/><span style="font-style:italic;color:var(--navy-mid);">Geometric Mechanics &amp; Robotics</span></h1>
       <p style="color:var(--slate);line-height:1.85;max-width:520px;margin-bottom:1.5rem;">
-        I am a Research Assistant in the Department of Mechanical Engineering at Pennsylvania State University, State College. My current research is in geometric mechanics — exploring the mathematical structures that underlie motion, control, and dynamics in physical systems. My broader background spans robotics, autonomous systems, and sensor optimization, with work spanning LiDAR placement, robot design, and human-robot interaction.
+        I am a Research Assistant in the Department of Mechanical Engineering at Pennsylvania State University, working with Prof. Baxi Chong on bio-inspired robot locomotion — modeling, simulation, and optimization of geometric locomotion. I hold a B.Sc. (Hons.) in Electronic and Telecommunication Engineering from the University of Moratuwa, Sri Lanka (CGPA 3.82/4.00, Dean's List). I was selected as one of 30 fellows worldwide for the MIT Summer Geometry Initiative 2025, and my broader research spans LiDAR sensor placement, humanoid HRI, speech emotion recognition, and computational robot design.
       </p>
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-        <a class="btn filled" href="https://linkedin.com/in/melisa-arukgoda" target="_blank">
+        <a class="btn filled" href="https://www.linkedin.com/in/melisaoshaini" target="_blank">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           LinkedIn
         </a>
@@ -391,50 +141,53 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14a7 7 0 0 0 0-14z"/></svg>
           Google Scholar
         </a>
-        <a class="btn" href="docs/CV_melisa_oshaini_arukgoda.pdf" target="_blank">CV / Résumé</a>
+        <a class="btn" href="https://github.com/melisaoshaini" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="CV_melisa_oshaini_arukgoda.pdf" target="_blank">CV / Résumé</a>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
-      <div style="width:200px;height:240px;background:var(--bg-soft);border:1px solid var(--border);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--text-muted);">
-        <img src="images/profile.PNG" style="width:100%;height:100%;object-fit:cover;">
+      <div style="width:200px;height:240px;background:var(--bg-soft);border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+        <img src="images/profile.PNG" alt="Melisa Arukgoda" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentElement.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--text-muted);\'><svg width=\'48\' height=\'48\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\' opacity=\'0.4\'><circle cx=\'12\' cy=\'8\' r=\'4\'/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg><span style=\'font-size:0.75rem;text-align:center;padding:0 1rem;\'>Add profile photo</span></div>'">
       </div>
       <p style="font-size:0.75rem;color:var(--text-muted);text-align:center;">State College, PA</p>
     </div>
   </div>
 </section>
 
-<!-- RESEARCH INTERESTS -->
 <section id="research">
   <h2>Research Interests</h2>
   <div class="interests-grid">
     <div class="interest-card">
       <div class="ic-title">Geometric Mechanics</div>
-      <p>Mathematical structures underlying motion and control — Lagrangian and Hamiltonian mechanics on manifolds, Lie group methods, and variational principles for physical systems.</p>
+      <p>Bio-inspired locomotion, modeling and simulation of geometric locomotion, optimization of motion using Lie group methods and variational principles for robotic systems.</p>
+    </div>
+    <div class="interest-card">
+      <div class="ic-title">Geometry Processing</div>
+      <p>Fault-tolerant motion planning, penetration-free deformation field computation, and topological analysis of shape-changing structures and AI-generated images.</p>
     </div>
     <div class="interest-card">
       <div class="ic-title">Autonomous Robotics</div>
-      <p>LiDAR sensor placement optimization, environment mapping, and perception pipelines for mobile robots operating in dynamic, real-world environments.</p>
+      <p>LiDAR sensor placement optimization, environment mapping, and perception pipelines for mobile and reconfigurable robots in real-world environments.</p>
     </div>
     <div class="interest-card">
-      <div class="ic-title">Computational Dynamics</div>
-      <p>Numerical methods for mechanical systems, structure-preserving integration, and simulation of constrained robotic and multibody systems.</p>
-    </div>
-    <div class="interest-card">
-      <div class="ic-title">Robot Design Optimization</div>
-      <p>Evolutionary and gradient-based approaches to sensor configuration, reconfigurable robot architectures, and scalable platform design.</p>
+      <div class="ic-title">Human–Robot Interaction</div>
+      <p>Expressive humanoid systems integrating facial recognition, speech processing, and LLM-based dialogue for natural human-robot interaction.</p>
     </div>
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
 <section id="publications">
   <h2>Publications</h2>
+  <p style="font-size:0.85rem;color:var(--slate-light);margin-bottom:1.25rem;font-style:italic;">Both manuscripts currently under review.</p>
   <div class="pub-list">
 
     <div class="pub-item">
-      <div class="pub-venue">IEEE Sensors Letters · 2025</div>
-      <div class="pub-title">Optimizing LiDAR Sensor Placement for Autonomous Robots Using Genetic Algorithms</div>
-      <div class="pub-authors">Melisa [Last Name], Mohan Rajesh Elara, et al.</div>
+      <div class="pub-venue">IEEE Access · Under Review</div>
+      <div class="pub-title">Determining the Optimum Placement of LiDAR Sensors for Autonomous Robots</div>
+      <div class="pub-authors">Melisa Oshaini Arukgoda, Bhagya Samarakoon, M. A. Viraj J. Muthugala, Mohan Rajesh Elara</div>
       <div class="pub-links">
         <a class="tag" href="#">PDF</a>
         <a class="tag" href="#">DOI</a>
@@ -442,128 +195,208 @@
       </div>
     </div>
 
-    <!-- Add more publications below using the same structure -->
     <div class="pub-item">
-      <div class="pub-venue">Conference / Journal · Year</div>
-      <div class="pub-title">Your Next Publication Title Goes Here</div>
-      <div class="pub-authors">Author One, Author Two, ...</div>
+      <div class="pub-venue">HRI 2026 · Under Review</div>
+      <div class="pub-title">Articulated Humanoid Head for a Robot Receptionist Capable of Natural Human Interaction</div>
+      <div class="pub-authors">Melisa Oshaini Arukgoda, Charuka Bandara, Tharusha Fonseka, Moshintha Isuru Hewavitharana, Wageesha N. Manamperi, Udaya S. K. Perera Miriya Thanthrige, Peshala Jayasekara</div>
       <div class="pub-links">
         <a class="tag" href="#">PDF</a>
         <a class="tag" href="#">DOI</a>
+        <a class="tag" href="#">BibTeX</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects-grid">
 
     <div class="project-card">
-      <div class="project-img">
-        <!-- Replace with: <img src="images/lidar.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
-        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
-      </div>
+      <div class="project-img"><span>Add project image</span></div>
       <div class="project-body">
-        <div class="project-label">Robotics · Python</div>
-        <div class="project-title">LiDAR Placement Optimization System</div>
-        <p class="project-desc">2D simulation and genetic algorithm pipeline for optimizing LiDAR sensor placement on autonomous robots, with environment mapping and region prioritization.</p>
+        <div class="project-label">HRI · ROS2 · Silicone · AI · Aug 2024 – Jun 2025</div>
+        <div class="project-title">Kuweni: Humanoid Robot Receptionist</div>
+        <p class="project-desc">21-DOF humanoid head with silicone skin expressing six emotions. Integrated facial recognition (89.7% accuracy), speech recognition (11.43% WER), and LLaMA 3.1 + RAG dialogue with 4.91s avg. response time. Rated 4.3/5.0 by 60 users.</p>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img">
-        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
-      </div>
+      <div class="project-img"><span>Add project image</span></div>
       <div class="project-body">
-        <div class="project-label">HRI · ROS · CAD</div>
-        <div class="project-title">Humanoid Robot Receptionist Head</div>
-        <p class="project-desc">Design and development of an expressive humanoid head for a robot receptionist, integrating servo actuation and ROS-based control for real-time interaction.</p>
+        <div class="project-label">Deep Learning · PyTorch · Hugging Face · Aug 2025</div>
+        <div class="project-title">Speech Emotion Recognition</div>
+        <p class="project-desc">97% validation accuracy on TESS dataset using Wav2Vec2 embeddings with LSTM/bi-LSTM and data augmentation in PyTorch.</p>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img">
-        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
-      </div>
+      <div class="project-img"><span>Add project image</span></div>
       <div class="project-body">
-        <div class="project-label">Robotics · Navigation</div>
-        <div class="project-title">Shape-Changing Tetris Robot</div>
-        <p class="project-desc">Reconfigurable mobile robot with mecanum wheels and pivot joints. Responsible for autonomous navigation and real-time shape transformation algorithms.</p>
+        <div class="project-label">Robotics · Python · STM32 · Sep 2024</div>
+        <div class="project-title">Maze Solving Micromouse Robot</div>
+        <p class="project-desc">Fully autonomous maze-solving robot with floodfill algorithm navigation and STM32 microcontroller implementation. Finalist at Robofest Micromouse Competition 2023 &amp; 2024.</p>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img">
-        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
-      </div>
+      <div class="project-img"><span>Add project image</span></div>
       <div class="project-body">
-        <div class="project-label">Medical Robotics · 6-DOF</div>
-        <div class="project-title">Autonomous Surgical Camera Control</div>
-        <p class="project-desc">Camera automation framework for a robotic minimally invasive surgery (RMIS) system using a 6-DOF arm, enabling hands-free surgical field tracking.</p>
+        <div class="project-label">Computer Vision · PyTorch · Aug 2023</div>
+        <div class="project-title">Ophthalmic Biomarker Detection</div>
+        <p class="project-desc">Multi-label classification of 6 biomarkers simultaneously on OCT scan images. Ranked 6th globally at IEEE Video and Image Processing Cup 2023.</p>
       </div>
     </div>
 
-    <!-- Add more project cards as needed -->
+    <div class="project-card">
+      <div class="project-img"><span>Add project image</span></div>
+      <div class="project-body">
+        <div class="project-label">Robotics · Sensor Optimization · Python</div>
+        <div class="project-title">LiDAR Placement Optimization</div>
+        <p class="project-desc">Genetic algorithm pipeline for optimizing LiDAR sensor placement on autonomous robots, with 2D Pygame simulation and region prioritization.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span>Add project image</span></div>
+      <div class="project-body">
+        <div class="project-label">Flutter · Bluetooth · Dec 2023 – Jan 2024</div>
+        <div class="project-title">Mobile App for Reconfigurable Robot</div>
+        <p class="project-desc">Flutter mobile app with BLE for controlling a reconfigurable shape-changing robot, deployed on both iOS and Google Play Store.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span>Add project image</span></div>
+      <div class="project-body">
+        <div class="project-label">Altium · Circuit Design · Oct 2022 – Mar 2023</div>
+        <div class="project-title">Analog Function Generator</div>
+        <p class="project-desc">Fully analog function generator producing sine, square, sawtooth, and triangular waves using only six op-amps, with optimized PCB design.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><span>Add project image</span></div>
+      <div class="project-body">
+        <div class="project-label">Unity · Firebase · Mar – Jun 2024</div>
+        <div class="project-title">EcoQuest: Energy Conservation Game</div>
+        <p class="project-desc">Unity-based 2D educational game teaching energy conservation through interactive gameplay and decision-making, with Firebase backend.</p>
+      </div>
+    </div>
 
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <h2>Experience</h2>
   <div class="exp-list">
 
     <div class="exp-item">
-      <div class="exp-date">2025 — Present</div>
+      <div class="exp-date">Feb 2026 — Present</div>
       <div class="exp-content">
-        <div class="exp-role">Research Assistant</div>
-        <div class="exp-place">Department of Mechanical Engineering, Penn State University</div>
-        <p class="exp-desc">Conducting research in geometric mechanics, focusing on the mathematical foundations of motion and control for physical and robotic systems. Based in State College, Pennsylvania.</p>
+        <div class="exp-role">Research Assistant — Bio-Inspired Robotics</div>
+        <div class="exp-place">Pennsylvania State University, Dept. of Mechanical Engineering</div>
+        <ul class="exp-bullets">
+          <li>Research under Prof. Baxi Chong on bio-inspired robot locomotion.</li>
+          <li>Focusing on modeling, simulation, and optimization of geometric locomotion.</li>
+        </ul>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">2024 — 2025</div>
+      <div class="exp-date">Jul — Aug 2025</div>
       <div class="exp-content">
-        <div class="exp-role">Undergraduate Researcher</div>
-        <div class="exp-place">SUTD — EPD Pillar, Prof. Mohan Rajesh Elara's Lab</div>
-        <p class="exp-desc">Leading sensor placement research using genetic algorithms for autonomous robot platforms. First-author paper submitted to IEEE Sensors Letters. Work focuses on scalable LiDAR configuration for real-world robot deployment.</p>
+        <div class="exp-role">Geometry Processing Researcher</div>
+        <div class="exp-place">Summer Geometry Initiative, MIT (Remote)</div>
+        <ul class="exp-bullets">
+          <li>Motion planning for broken snake robots using geometric strategies for fault-tolerant locomotion.</li>
+          <li>Implemented penetration-free deformation field computation in 3D shapes.</li>
+          <li>Topological analysis of AI-generated images for structural stability.</li>
+        </ul>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">2024</div>
+      <div class="exp-date">Dec 2023 — Jun 2024</div>
       <div class="exp-content">
-        <div class="exp-role">Robotics Team Member — ROS Lead</div>
-        <div class="exp-place">SUTD Group Project · Humanoid Robot Receptionist</div>
-        <p class="exp-desc">Responsible for ROS integration, servo control, and the software architecture for an expressive humanoid robot head designed for public-facing reception tasks.</p>
+        <div class="exp-role">Intern Research Assistant</div>
+        <div class="exp-place">Robotics and Automation Research Laboratory, SUTD, Singapore</div>
+        <ul class="exp-bullets">
+          <li>Worked on "Optimum Placement of LiDAR Sensors for Autonomous Robots" under Prof. Mohan Rajesh Elara.</li>
+          <li>Developed an educational simulation platform in Unity and a mobile app to control a reconfigurable robot.</li>
+        </ul>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">Add year</div>
+      <div class="exp-date">2023</div>
       <div class="exp-content">
-        <div class="exp-role">Your Role Here</div>
-        <div class="exp-place">Organization / Company</div>
-        <p class="exp-desc">Brief description of what you did, what you built, and what impact it had.</p>
+        <div class="exp-role">Visiting Instructor</div>
+        <div class="exp-place">University of Moratuwa</div>
+        <ul class="exp-bullets">
+          <li>Conducted practical lab sessions for EN2553: Robot Design and Competition.</li>
+        </ul>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- HOBBIES -->
+<section id="achievements">
+  <h2>Achievements</h2>
+  <div class="achieve-grid">
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>MIT SGI 2025 Fellow</strong>One of 30 fellows selected worldwide for MIT's Summer Geometry Initiative 2025.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>IEEE VIP Cup 2023 — 6th Globally</strong>IEEE Video and Image Processing Cup, ophthalmic biomarker detection challenge.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>Robofest Micromouse Finalist</strong>Finalist at SLIIT Micromouse Competition, 2023 &amp; 2024.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>IEEE Xtreme 2024 — 600th Globally</strong>Ranked out of 8,000+ teams worldwide.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>Mahapola Merit Scholarship</strong>Ranked 74th in Sri Lanka at GCE Advanced Level Examination 2019.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>Gold Medal — All Island Mathematics Competition</strong>Sri Lanka, 2018.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>High Distinction — Sri Lanka Mathematical Olympiad</strong>2017 &amp; 2018.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>Dean's List — University of Moratuwa</strong>Semesters 1, 2, 4, 6, 7, and 8.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>SPARK Challenge Finalist</strong>Organized by SPARK Foundation &amp; University of Moratuwa, 2023.</div>
+    </div>
+    <div class="achieve-item">
+      <div class="achieve-dot"></div>
+      <div class="achieve-text"><strong>2nd Best Performance — Australian National Chemistry Quiz</strong>Senior 2 Division, 2018.</div>
+    </div>
+  </div>
+</section>
+
 <section id="hobbies">
   <h2>Beyond the Lab</h2>
   <p class="hobbies-intro">
-    Outside of research and coursework, I enjoy travelling, cooking, photogaphy and painting(I try:> ). It keeps me grounded and sharpens the way I see and frame problems — not just images.
+    Outside of research, I love travelling, cooking, photography, and painting (I try :&gt;). These keep me grounded and offer a completely different way of seeing the world — one that often ends up informing how I think about problems in the lab too.
   </p>
   <div class="hobby-photos">
     <div class="hobby-photo">
-      <!-- Replace with: <img src="images/hobby1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"> -->
+      <!-- Replace inner content with: <img src="images/hobby1.jpg" alt=""> -->
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
       <span>Add a photo</span>
     </div>
@@ -582,12 +415,11 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact-wrapper">
-    <p>I'm open to research collaborations, internship opportunities, and academic discussions. Fill out the form and I'll get back to you.</p>
-    <!-- This form uses Formspree — replace YOUR_FORM_ID with your Formspree endpoint -->
+    <p>I'm open to research collaborations, academic discussions, and new opportunities. Fill out the form and I'll get back to you.</p>
+    <!-- Formspree: sign up free at formspree.io, create a form, paste your form ID below -->
     <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div class="form-row">
         <div class="form-group">
@@ -612,14 +444,13 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <span>© 2025 Melisa Arukgoda. All rights reserved.</span>
+    <span>© 2026 Melisa Oshaini Arukgoda. All rights reserved.</span>
     <div class="footer-links">
-      <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/melisaoshaini" target="_blank">LinkedIn</a>
       <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a>
-      <a href="https://github.com/your-username" target="_blank">GitHub</a>
+      <a href="https://github.com/melisaoshaini" target="_blank">GitHub</a>
     </div>
   </div>
 </footer>
