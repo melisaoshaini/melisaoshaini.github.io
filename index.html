@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Melisa Arukgoda — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #1a2744;
+      --navy-mid: #2c3e6b;
+      --slate: #4a5568;
+      --slate-light: #718096;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-soft: #f8f9fc;
+      --accent: #1a2744;
+      --text: #1a202c;
+      --text-muted: #718096;
+      --max: 860px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    /* HERO */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero-text .title-line {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      margin-bottom: 1.5rem;
+    }
+    .hero-text p {
+      font-size: 1rem;
+      color: var(--slate);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--navy);
+      border-radius: 3px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--navy);
+      transition: all 0.2s;
+    }
+    .btn:hover { background: var(--navy); color: white; }
+    .btn.filled { background: var(--navy); color: white; }
+    .btn.filled:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+
+    .hero-photo {
+      width: 220px; height: 260px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-photo svg { opacity: 0.35; }
+
+    /* DIVIDER */
+    .divider {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+    }
+    section + section { border-top: 1px solid var(--border); }
+
+    h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--navy);
+      display: inline-block;
+    }
+
+    /* RESEARCH INTERESTS */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .interest-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.25rem 1.25rem;
+    }
+    .interest-card .ic-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .interest-card p { font-size: 0.88rem; color: var(--slate); line-height: 1.6; }
+
+    /* PUBLICATIONS */
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pub-item {
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--navy);
+      background: var(--bg-soft);
+    }
+    .pub-venue {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      margin-bottom: 0.35rem;
+    }
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    .pub-authors { font-size: 0.85rem; color: var(--slate); margin-bottom: 0.5rem; }
+    .pub-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border-radius: 2px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--slate);
+      transition: all 0.2s;
+    }
+    .tag:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .project-img {
+      width: 100%; height: 160px;
+      background: var(--bg-soft);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-body { padding: 1rem 1.1rem; }
+    .project-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      margin-bottom: 0.3rem;
+    }
+    .project-title {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .project-desc { font-size: 0.85rem; color: var(--slate); line-height: 1.6; }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; gap: 1.75rem; }
+    .exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem; }
+    .exp-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding-top: 2px;
+      text-align: right;
+    }
+    .exp-content {}
+    .exp-role { font-size: 1rem; font-weight: 500; color: var(--navy); }
+    .exp-place {
+      font-size: 0.85rem;
+      color: var(--slate);
+      margin-bottom: 0.35rem;
+    }
+    .exp-desc { font-size: 0.88rem; color: var(--slate); line-height: 1.7; }
+
+    /* HOBBIES */
+    .hobbies-intro { color: var(--slate); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; }
+    .hobby-photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .hobby-photo {
+      aspect-ratio: 4/3;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* CONTACT */
+    .contact-wrapper {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 2.5rem;
+      max-width: 560px;
+    }
+    .contact-wrapper p { color: var(--slate); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.8; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    label { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--slate); }
+    input, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: white;
+      color: var(--text);
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--navy);
+    }
+    textarea { min-height: 110px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--navy); }
+
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { width: 140px; height: 160px; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .exp-date { text-align: left; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-text h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">Melisa Arukgoda —</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO / ABOUT -->
+<div id="top"></div>
+<section id="about" style="padding-top: 4rem; padding-bottom: 4rem;">
+  <div style="display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: start;">
+    <div>
+      <p class="title-line" style="font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-light);margin-bottom:0.5rem;">Research Assistant · Mechanical Engineering · Penn State University</p>
+      <h1 style="font-family:'EB Garamond',serif;font-size:2.7rem;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:1.25rem;">Melisa Arukgoda<br/><span style="font-style:italic;color:var(--navy-mid);">Geometric Mechanics &amp; Robotics</span></h1>
+      <p style="color:var(--slate);line-height:1.85;max-width:520px;margin-bottom:1.5rem;">
+        I am a Research Assistant in the Department of Mechanical Engineering at Pennsylvania State University, State College. My current research is in geometric mechanics — exploring the mathematical structures that underlie motion, control, and dynamics in physical systems. My broader background spans robotics, autonomous systems, and sensor optimization, with work spanning LiDAR placement, robot design, and human-robot interaction during my time at SUTD under Prof. Mohan Rajesh Elara.
+      </p>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <a class="btn filled" href="https://linkedin.com/in/your-profile" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14a7 7 0 0 0 0-14z"/></svg>
+          Google Scholar
+        </a>
+        <a class="btn" href="your-cv.pdf" target="_blank">CV / Résumé</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div style="width:200px;height:240px;background:var(--bg-soft);border:1px solid var(--border);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;color:var(--text-muted);">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span style="font-size:0.75rem;text-align:center;padding:0 1rem;">Replace with<br/>profile photo</span>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-muted);text-align:center;">State College, PA</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH INTERESTS -->
+<section id="research">
+  <h2>Research Interests</h2>
+  <div class="interests-grid">
+    <div class="interest-card">
+      <div class="ic-title">Geometric Mechanics</div>
+      <p>Mathematical structures underlying motion and control — Lagrangian and Hamiltonian mechanics on manifolds, Lie group methods, and variational principles for physical systems.</p>
+    </div>
+    <div class="interest-card">
+      <div class="ic-title">Autonomous Robotics</div>
+      <p>LiDAR sensor placement optimization, environment mapping, and perception pipelines for mobile robots operating in dynamic, real-world environments.</p>
+    </div>
+    <div class="interest-card">
+      <div class="ic-title">Computational Dynamics</div>
+      <p>Numerical methods for mechanical systems, structure-preserving integration, and simulation of constrained robotic and multibody systems.</p>
+    </div>
+    <div class="interest-card">
+      <div class="ic-title">Robot Design Optimization</div>
+      <p>Evolutionary and gradient-based approaches to sensor configuration, reconfigurable robot architectures, and scalable platform design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <h2>Publications</h2>
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <div class="pub-venue">IEEE Sensors Letters · 2025</div>
+      <div class="pub-title">Optimizing LiDAR Sensor Placement for Autonomous Robots Using Genetic Algorithms</div>
+      <div class="pub-authors">Melisa [Last Name], Mohan Rajesh Elara, et al.</div>
+      <div class="pub-links">
+        <a class="tag" href="#">PDF</a>
+        <a class="tag" href="#">DOI</a>
+        <a class="tag" href="#">BibTeX</a>
+      </div>
+    </div>
+
+    <!-- Add more publications below using the same structure -->
+    <div class="pub-item">
+      <div class="pub-venue">Conference / Journal · Year</div>
+      <div class="pub-title">Your Next Publication Title Goes Here</div>
+      <div class="pub-authors">Author One, Author Two, ...</div>
+      <div class="pub-links">
+        <a class="tag" href="#">PDF</a>
+        <a class="tag" href="#">DOI</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-img">
+        <!-- Replace with: <img src="images/lidar.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
+      </div>
+      <div class="project-body">
+        <div class="project-label">Robotics · Python</div>
+        <div class="project-title">LiDAR Placement Optimization System</div>
+        <p class="project-desc">2D simulation and genetic algorithm pipeline for optimizing LiDAR sensor placement on autonomous robots, with environment mapping and region prioritization.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">
+        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
+      </div>
+      <div class="project-body">
+        <div class="project-label">HRI · ROS · CAD</div>
+        <div class="project-title">Humanoid Robot Receptionist Head</div>
+        <p class="project-desc">Design and development of an expressive humanoid head for a robot receptionist, integrating servo actuation and ROS-based control for real-time interaction.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">
+        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
+      </div>
+      <div class="project-body">
+        <div class="project-label">Robotics · Navigation</div>
+        <div class="project-title">Shape-Changing Tetris Robot</div>
+        <p class="project-desc">Reconfigurable mobile robot with mecanum wheels and pivot joints. Responsible for autonomous navigation and real-time shape transformation algorithms.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">
+        <span style="font-size:0.75rem;color:var(--text-muted);">Add project image</span>
+      </div>
+      <div class="project-body">
+        <div class="project-label">Medical Robotics · 6-DOF</div>
+        <div class="project-title">Autonomous Surgical Camera Control</div>
+        <p class="project-desc">Camera automation framework for a robotic minimally invasive surgery (RMIS) system using a 6-DOF arm, enabling hands-free surgical field tracking.</p>
+      </div>
+    </div>
+
+    <!-- Add more project cards as needed -->
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-date">2025 — Present</div>
+      <div class="exp-content">
+        <div class="exp-role">Research Assistant</div>
+        <div class="exp-place">Department of Mechanical Engineering, Penn State University</div>
+        <p class="exp-desc">Conducting research in geometric mechanics, focusing on the mathematical foundations of motion and control for physical and robotic systems. Based in State College, Pennsylvania.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2024 — 2025</div>
+      <div class="exp-content">
+        <div class="exp-role">Undergraduate Researcher</div>
+        <div class="exp-place">SUTD — EPD Pillar, Prof. Mohan Rajesh Elara's Lab</div>
+        <p class="exp-desc">Leading sensor placement research using genetic algorithms for autonomous robot platforms. First-author paper submitted to IEEE Sensors Letters. Work focuses on scalable LiDAR configuration for real-world robot deployment.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2024</div>
+      <div class="exp-content">
+        <div class="exp-role">Robotics Team Member — ROS Lead</div>
+        <div class="exp-place">SUTD Group Project · Humanoid Robot Receptionist</div>
+        <p class="exp-desc">Responsible for ROS integration, servo control, and the software architecture for an expressive humanoid robot head designed for public-facing reception tasks.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Add year</div>
+      <div class="exp-content">
+        <div class="exp-role">Your Role Here</div>
+        <div class="exp-place">Organization / Company</div>
+        <p class="exp-desc">Brief description of what you did, what you built, and what impact it had.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <h2>Beyond the Lab</h2>
+  <p class="hobbies-intro">
+    Outside of research and coursework, I enjoy [describe your hobby here — e.g., "landscape photography, which has taken me across Singapore and beyond, looking for light in overlooked corners of the city"]. It keeps me grounded and sharpens the way I see and frame problems — not just images.
+  </p>
+  <div class="hobby-photos">
+    <div class="hobby-photo">
+      <!-- Replace with: <img src="images/hobby1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"> -->
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Add a photo</span>
+    </div>
+    <div class="hobby-photo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Add a photo</span>
+    </div>
+    <div class="hobby-photo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Add a photo</span>
+    </div>
+    <div class="hobby-photo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Add a photo</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-wrapper">
+    <p>I'm open to research collaborations, internship opportunities, and academic discussions. Fill out the form and I'll get back to you.</p>
+    <!-- This form uses Formspree — replace YOUR_FORM_ID with your Formspree endpoint -->
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="What's this about?"/>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="btn filled" style="align-self:flex-start;">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2025 Melisa Arukgoda. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a>
+      <a href="https://github.com/your-username" target="_blank">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
