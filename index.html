@@ -97,6 +97,14 @@
     .footer-links a { color: var(--text-muted); text-decoration: none; }
     .footer-links a:hover { color: var(--navy); }
 
+    .lightbox-overlay { display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.88); align-items:center; justify-content:center; cursor:zoom-out; }
+    .lightbox-overlay.active { display:flex; }
+    .lightbox-overlay img { max-width:92vw; max-height:92vh; object-fit:contain; border-radius:4px; cursor:default; }
+    .lightbox-close { position:fixed; top:1.25rem; right:1.5rem; color:white; font-size:2rem; cursor:pointer; background:none; border:none; opacity:0.8; }
+    .lightbox-close:hover { opacity:1; }
+    .project-img img, .hobby-photo img { cursor:zoom-in; }
+
+
     @media (max-width: 640px) {
       .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
       .exp-date { text-align: left; }
@@ -408,6 +416,33 @@
     </div>
   </div>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&#215;</button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
+<script>
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt || '';
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.project-img img, .hobby-photo img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+  });
+</script>
 
 </body>
 </html>
